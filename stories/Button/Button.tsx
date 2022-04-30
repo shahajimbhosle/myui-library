@@ -5,15 +5,62 @@ import theme from "../theme";
 interface ButtonProps {
   children: string;
   size?: "sm" | "md" | "lg";
-  variant?: "primary" | "secondary" | "success" | "danger";
+  color?: "primary" | "secondary" | "success" | "danger";
   disabled?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
 }
 
+const getBackgroundColor = (
+  color: string,
+  disabled: boolean,
+  isForHover: boolean = false
+): string => {
+  if (disabled) return theme.color.disabledBg;
+
+  switch (color) {
+    case "secondary":
+      return isForHover ? theme.color.secondaryDark : theme.color.secondary;
+
+    case "success":
+      return isForHover ? theme.color.successDark : theme.color.success;
+
+    case "danger":
+      return isForHover ? theme.color.dangerDark : theme.color.danger;
+
+    default:
+      return isForHover ? theme.color.primaryDark : theme.color.primary;
+  }
+};
+
+const getSize = (size: string): string => {
+  switch (size) {
+    case "sm":
+      return `
+      font-size: 12px;
+      padding: 5px;
+      height: 15px;
+      `;
+
+    case "lg":
+      return `
+        font-size: 16px;
+        padding: 5px 15px;
+        height: 35px;
+        `;
+
+    default:
+      return `
+      font-size: 14px;
+      padding: 5px 10px;
+      height: 25px;
+      `;
+  }
+};
+
 const StyledButton = styled.button<{
   size: string;
-  variant: string;
+  color: string;
   disabled: boolean;
 }>`
   box-sizing: inherit;
@@ -24,30 +71,38 @@ const StyledButton = styled.button<{
   outline: 0;
   border: 0;
   user-select: none;
-  cursor: pointer;
-  color: #fff;
-  background-color: ${theme.color.primary};
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  color: ${({ disabled }) =>
+    disabled ? theme.color.disabledText : theme.color.white};
+  background-color: ${({ color, disabled }) =>
+    getBackgroundColor(color, disabled)};
+
+  ${({ disabled }) =>
+    !disabled &&
+    `
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
     0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-  font-size: 16px;
-  padding: 8px 15px;
+    `}
+
+  ${({ size }) => getSize(size)}
 
   &:hover {
-    background-color: #1565c0;
+    background-color: ${({ color, disabled }) =>
+      getBackgroundColor(color, disabled, true)};
   }
 `;
 
 export const Button = ({
   children,
   size = "md",
-  variant = "primary",
+  color = "primary",
   disabled = false,
   startIcon,
   endIcon,
   ...props
 }: ButtonProps) => {
   return (
-    <StyledButton size={size} variant={variant} disabled={disabled} {...props}>
+    <StyledButton size={size} color={color} disabled={disabled} {...props}>
       {startIcon}
       {children}
       {endIcon}
