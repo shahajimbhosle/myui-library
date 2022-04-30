@@ -7,8 +7,8 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   color?: "primary" | "secondary" | "success" | "danger";
   disabled?: boolean;
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
+  startIcon?: any;
+  endIcon?: any;
 }
 
 const getBackgroundColor = (
@@ -92,6 +92,10 @@ const StyledButton = styled.button<{
   }
 `;
 
+const IconContainer = styled.span`
+  padding: 0 5px;
+`;
+
 export const Button = ({
   children,
   size = "md",
@@ -103,9 +107,9 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <StyledButton size={size} color={color} disabled={disabled} {...props}>
-      {startIcon}
-      {children}
-      {endIcon}
+      {startIcon && <IconContainer>{startIcon}</IconContainer>}
+      <IconContainer>{children}</IconContainer>
+      {endIcon && <IconContainer>{endIcon}</IconContainer>}
     </StyledButton>
   );
 };

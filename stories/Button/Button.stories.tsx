@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import styled from "styled-components";
+import { FcIdea, FcPlanner } from "react-icons/fc";
 
 import { Button } from "./Button";
 
@@ -37,3 +38,11 @@ export const Size = () => (
 
 /** Disabled button */
 export const Disabled = () => <Button disabled>Disabled</Button>;
+
+/** Button with Icons */
+export const WithIcon = () => (
+  <ButtonsContainer>
+    <Button startIcon={<FcIdea size={22} />}>Start Icon</Button>
+    <Button endIcon={<FcPlanner size={22} />}>End Icon</Button>
+  </ButtonsContainer>
+);
