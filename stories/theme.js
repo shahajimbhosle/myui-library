@@ -11,5 +11,6 @@ export default {
     disabledBg: "#0000001f",
     disabledText: "#00000066",
     white: "#fff",
+    red: "#ff0000",
   },
 };

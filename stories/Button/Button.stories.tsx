@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react";
 import styled from "styled-components";
 import { FcIdea, FcPlanner } from "react-icons/fc";
 
-import { Button } from "./Button";
+import { Button } from ".";
 
 const meta: Meta = {
   title: "Components/Button",
