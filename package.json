@@ -1,0 +1,46 @@
+{
+  "name": "@shahajimbhosle/myui-library",
+  "version": "1.0.0",
+  "description": "React UI library",
+  "main": "dist/index.js",
+  "repository": "https://github.com/shahajimbhosle/myui-library.git",
+  "author": "Shahaji Bhosle <shahaji2006@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-controls": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "^0.0.11",
+    "@types/react": "^18.0.8",
+    "@types/styled-components": "^5.1.25",
+    "babel-loader": "^8.2.5",
+    "postcss": "^8.4.12",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.3.1",
+    "rollup": "^2.70.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-plugin-uglify": "^6.0.4",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.6.4"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.5"
+  },
+  "dependencies": {},
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "buildLib": "rollup -c"
+  }
+}
