@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Spinner } from "../Spinner";
 import theme from "../theme";
 
 interface ButtonProps {
@@ -7,6 +8,7 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   color?: "primary" | "secondary" | "success" | "danger";
   disabled?: boolean;
+  isLoading?: boolean;
   startIcon?: any;
   endIcon?: any;
 }
@@ -101,10 +103,16 @@ export const Button = ({
   size = "md",
   color = "primary",
   disabled = false,
+  isLoading = false,
   startIcon,
   endIcon,
   ...props
 }: ButtonProps) => {
+  if (isLoading) {
+    disabled = true;
+    startIcon = <Spinner size={12} color={theme.color.disabledText} />;
+  }
+
   return (
     <StyledButton size={size} color={color} disabled={disabled} {...props}>
       {startIcon && <IconContainer>{startIcon}</IconContainer>}

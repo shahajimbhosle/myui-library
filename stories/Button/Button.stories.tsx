@@ -46,3 +46,6 @@ export const WithIcon = () => (
     <Button endIcon={<FcPlanner size={22} />}>End Icon</Button>
   </ButtonsContainer>
 );
+
+/** Loading button */
+export const LoadingButton = () => <Button isLoading>Loading</Button>;

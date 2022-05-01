@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import theme from "../theme";
 
-interface LoadingProps {
+interface SpinnerProps {
   size?: number;
   color?: string;
 }
@@ -13,7 +13,7 @@ const loadingKeyframe = keyframes`
     }
 `;
 
-const StyledLoading = styled.div<LoadingProps>`
+const StyledLoading = styled.div<SpinnerProps>`
   height: ${({ size }) => (size ? `${size}px` : "50px")};
   width: ${({ size }) => (size ? `${size}px` : "50px")};
   border: solid ${({ size }) => (size ? size / 5 : 10)}px
@@ -23,4 +23,4 @@ const StyledLoading = styled.div<LoadingProps>`
   animation: ${loadingKeyframe} 1s linear infinite;
 `;
 
-export const Loading = (props: LoadingProps) => <StyledLoading {...props} />;
+export const Spinner = (props: SpinnerProps) => <StyledLoading {...props} />;
