@@ -12,5 +12,10 @@ export default {
     disabledText: "#00000066",
     white: "#fff",
     red: "#ff0000",
+    alertInfoBg: "#0288d1",
+    alertErrorBg: "#d32f2f",
+    alertWarningBg: "#ed6c02",
+    alertSuccessBg: "#2e7d32",
+    textGray: "#6F7E8C",
   },
 };

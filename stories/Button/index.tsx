@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { Spinner } from "../Spinner";
 import theme from "../theme";
@@ -9,8 +9,8 @@ interface ButtonProps {
   color?: "primary" | "secondary" | "success" | "danger";
   disabled?: boolean;
   isLoading?: boolean;
-  startIcon?: any;
-  endIcon?: any;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 }
 
 const getBackgroundColor = (
