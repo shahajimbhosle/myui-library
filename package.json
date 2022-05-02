@@ -41,7 +41,7 @@
   "dependencies": {},
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "buildSB": "build-storybook -o ./docs",
     "buildLib": "rollup -c"
   }
 }
