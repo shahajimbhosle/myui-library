@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Meta } from "@storybook/react";
 import { Progress } from ".";
+import theme from "../theme";
 
 const meta: Meta = {
   title: "Components/Progress",
@@ -10,7 +11,7 @@ const meta: Meta = {
 export default meta;
 
 export const ProgressBar = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(50);
 
   useEffect(() => {
     if (value < 100) {
@@ -20,5 +21,16 @@ export const ProgressBar = () => {
     }
   }, [value]);
 
-  return <Progress value={value}></Progress>;
+  return (
+    <>
+      <Progress value={value}></Progress>
+      <Progress value={value} stripped></Progress>
+      <Progress value={value} color={theme.color.dangerDark}></Progress>
+      <Progress
+        value={value}
+        color={theme.color.dangerDark}
+        stripped
+      ></Progress>
+    </>
+  );
 };
