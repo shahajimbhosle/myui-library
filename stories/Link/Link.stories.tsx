@@ -5,8 +5,7 @@ import { Link } from ".";
 import theme from "../theme";
 
 const LinksContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
 `;
 
 const meta: Meta = {
@@ -20,5 +19,6 @@ export const Links = () => (
   <LinksContainer>
     <Link>Default link</Link>
     <Link color={theme.color.dangerDark}>Different Color</Link>
+    <Link color="blue">Blue Color</Link>
   </LinksContainer>
 );

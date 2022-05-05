@@ -50,7 +50,7 @@ interface AlertProps {
   children?: ReactNode | string;
 }
 
-const StyledP = styled.p<AlertProps>`
+const StyledAlertDiv = styled.div<AlertProps>`
   color: ${theme.color.white};
   background-color: ${({ variant = "info" }) => getBgColor(variant)};
   display: flex;
@@ -64,9 +64,9 @@ const StyledP = styled.p<AlertProps>`
 
 export const Alert = ({ variant = "info", children, ...props }: AlertProps) => {
   return (
-    <StyledP variant={variant} {...props}>
+    <StyledAlertDiv variant={variant} {...props}>
       <span>{getIcon(variant)}</span>
       <div>{children}</div>
-    </StyledP>
+    </StyledAlertDiv>
   );
 };
